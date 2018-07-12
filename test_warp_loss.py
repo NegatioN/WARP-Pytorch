@@ -48,3 +48,10 @@ class TestWARPLoss:
                               for i, idx in enumerate(num_tries_gt_zero(comp_scores, 3, 3, max_value, cpu_device))]))
 
         assert res.data.numpy() == pytest.approx(gt, 0.01)
+
+    def test_no_offending_scores(self):
+        pos = torch.FloatTensor([1, 1])
+        neg = torch.FloatTensor([[-1, -1, -1],[-1, -1, -1]])
+        res = warp_loss(pos.view(-1, 1), neg, num_labels, cpu_device)
+        
+        assert res == 0
