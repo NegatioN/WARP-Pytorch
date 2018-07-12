@@ -18,3 +18,5 @@ As an example this could be done in your dataloader:
 2. Your negatives should be a random selection from 0-100 excluding 8.
 
 Ex input to loss function: model scores for pos: [8] neg: [88, 3, 99, 7]
+
+Currently only tested on PyTorch v0.4
