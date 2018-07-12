@@ -25,3 +25,8 @@ As an example this could be done in your dataloader:
 Ex input to loss function: model scores for pos: [8] neg: [88, 3, 99, 7]
 
 Currently only tested on PyTorch v0.4
+
+### References
+* [WSABIE: Scaling Up To Large Vocabulary Image Annotation](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/37180.pdf)
+* [Intro to WARP loss - Automatic differentiation and PyTorch](https://medium.com/@gabrieltseng/intro-to-warp-loss-automatic-differentiation-and-pytorch-b6aa5083187a)
+* [LightFM](https://github.com/lyst/lightfm) as a reference implementaiton
