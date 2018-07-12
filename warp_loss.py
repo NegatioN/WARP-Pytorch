@@ -25,6 +25,7 @@ def warp_loss(positive_predictions, negative_predictions, num_labels, device):
     positive_predictions: [batch_size x 1] floats between -1 to 1
     negative_predictions: [batch_size x N] floats between -1 to 1
     num_labels: int total number of labels in dataset (not just the subset you're using for the batch)
+    device: pytorch.device
     '''
     batch_size, max_trials = negative_predictions.size(0), negative_predictions.size(1)
 

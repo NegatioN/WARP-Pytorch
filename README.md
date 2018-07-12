@@ -8,6 +8,11 @@ respect to this sample.
 
 The advantage is that it can use the speedups that comes with GPU-usage. 
 
+## When is WARP loss advantageous?
+If you're ranking items or making models for recommendations, it's often advantageous to let your loss function directly
+optimize for this case. WARP loss looks at 1 explicit positive up against the implicit negative items that a user never sampled,
+and allows us to adjust weights of the network accordingly.
+
 ## Assumptions
 The loss function assumes you have already sampled your negatives randomly.
 
