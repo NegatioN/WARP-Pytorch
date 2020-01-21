@@ -121,19 +121,19 @@ and allows us to adjust weights of the network accordingly.</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Positive Labels: tensor([[55],
-        [49],
-        [50]])
-Negative Labels: tensor([[35, 71],
-        [21, 83],
-        [98, 52]])
-Model positive scores: tensor([[-8.3793],
-        [-3.7279],
-        [ 2.9248]], grad_fn=&lt;SqueezeBackward1&gt;)
-Model negative scores: tensor([[ 0.5967, -2.6239],
-        [ 0.3970,  1.5881],
-        [ 1.5309, -3.4169]], grad_fn=&lt;SqueezeBackward1&gt;)
-Loss: tensor(69.3908, grad_fn=&lt;SumBackward0&gt;)
+<pre>Positive Labels: tensor([[21],
+        [71],
+        [26]])
+Negative Labels: tensor([[47, 10],
+        [56, 78],
+        [44, 55]])
+Model positive scores: tensor([[-4.9562],
+        [-1.6886],
+        [ 3.3984]], grad_fn=&lt;SqueezeBackward1&gt;)
+Model negative scores: tensor([[ 1.0491,  4.9357],
+        [-2.1289,  0.4496],
+        [ 3.4541,  0.0931]], grad_fn=&lt;SqueezeBackward1&gt;)
+Loss: tensor(39.6134, grad_fn=&lt;SumBackward0&gt;)
 </pre>
 </div>
 </div>
@@ -161,7 +161,7 @@ Loss: tensor(69.3908, grad_fn=&lt;SumBackward0&gt;)
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>We can also see that the gradient is only active for 2x the number of positive labels: 4
+<pre>We can also see that the gradient is only active for 2x the number of positive labels: 6
 Meaning we correctly discard the gradients for all other than the offending negative label.
 </pre>
 </div>
@@ -181,7 +181,7 @@ Meaning we correctly discard the gradients for all other than the offending nega
 <li>Your negatives should be a random selection from 0-100 excluding 8.</li>
 </ol>
 <p>Ex input to loss function: model scores for pos: [8] neg: [88, 3, 99, 7]</p>
-<p>Currently only tested on PyTorch v0.4</p>
+<p>Should work on all pytorch-versions from 0.4 and up</p>
 <h3 id="References">References<a class="anchor-link" href="#References">&#182;</a></h3><ul>
 <li><a href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/37180.pdf">WSABIE: Scaling Up To Large Vocabulary Image Annotation</a></li>
 <li><a href="https://medium.com/@gabrieltseng/intro-to-warp-loss-automatic-differentiation-and-pytorch-b6aa5083187a">Intro to WARP loss - Automatic differentiation and PyTorch</a></li>

@@ -81,19 +81,19 @@ loss.backward()
 </div>
 <div class="output_area" markdown="1">
 
-    Positive Labels: tensor([[55],
-            [49],
-            [50]])
-    Negative Labels: tensor([[35, 71],
-            [21, 83],
-            [98, 52]])
-    Model positive scores: tensor([[-8.3793],
-            [-3.7279],
-            [ 2.9248]], grad_fn=<SqueezeBackward1>)
-    Model negative scores: tensor([[ 0.5967, -2.6239],
-            [ 0.3970,  1.5881],
-            [ 1.5309, -3.4169]], grad_fn=<SqueezeBackward1>)
-    Loss: tensor(69.3908, grad_fn=<SumBackward0>)
+    Positive Labels: tensor([[21],
+            [71],
+            [26]])
+    Negative Labels: tensor([[47, 10],
+            [56, 78],
+            [44, 55]])
+    Model positive scores: tensor([[-4.9562],
+            [-1.6886],
+            [ 3.3984]], grad_fn=<SqueezeBackward1>)
+    Model negative scores: tensor([[ 1.0491,  4.9357],
+            [-2.1289,  0.4496],
+            [ 3.4541,  0.0931]], grad_fn=<SqueezeBackward1>)
+    Loss: tensor(39.6134, grad_fn=<SumBackward0>)
 
 
 </div>
@@ -110,7 +110,7 @@ print('Meaning we correctly discard the gradients for all other than the offendi
 </div>
 <div class="output_area" markdown="1">
 
-    We can also see that the gradient is only active for 2x the number of positive labels: 4
+    We can also see that the gradient is only active for 2x the number of positive labels: 6
     Meaning we correctly discard the gradients for all other than the offending negative label.
 
 
@@ -129,7 +129,7 @@ As an example this could be done in your dataloader:
 
 Ex input to loss function: model scores for pos: [8] neg: [88, 3, 99, 7]
 
-Currently only tested on PyTorch v0.4
+Should work on all pytorch-versions from 0.4 and up
 
 ### References
 * [WSABIE: Scaling Up To Large Vocabulary Image Annotation](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/37180.pdf)
