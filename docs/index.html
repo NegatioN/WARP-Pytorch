@@ -24,7 +24,6 @@ summary: "An implementation of WARP loss which uses matrixes and stays on the GP
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>An implementation of WARP loss which uses matrixes and stays on the GPU in PyTorch.</p>
 <p>This means instead of using a for-loop to find the first offending negative sample that ranks above our positive,
 we compute all of them at once. Only later do we find which sample is the first offender, and compute the loss with
 respect to this sample.</p>
@@ -122,19 +121,19 @@ and allows us to adjust weights of the network accordingly.</p>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Positive Labels: tensor([[65],
-        [94],
-        [21]])
-Negative Labels: tensor([[ 8, 45],
-        [37, 93],
-        [88, 84]])
-Model positive scores: tensor([[-3.7806],
-        [-1.9974],
-        [-4.1741]], grad_fn=&lt;SqueezeBackward1&gt;)
-Model negative scores: tensor([[-1.5696, -4.4905],
-        [-1.9300, -0.3826],
-        [ 2.4564, -2.1741]], grad_fn=&lt;SqueezeBackward1&gt;)
-Loss: tensor(54.7226, grad_fn=&lt;SumBackward0&gt;)
+<pre>Positive Labels: tensor([[55],
+        [49],
+        [50]])
+Negative Labels: tensor([[35, 71],
+        [21, 83],
+        [98, 52]])
+Model positive scores: tensor([[-8.3793],
+        [-3.7279],
+        [ 2.9248]], grad_fn=&lt;SqueezeBackward1&gt;)
+Model negative scores: tensor([[ 0.5967, -2.6239],
+        [ 0.3970,  1.5881],
+        [ 1.5309, -3.4169]], grad_fn=&lt;SqueezeBackward1&gt;)
+Loss: tensor(69.3908, grad_fn=&lt;SumBackward0&gt;)
 </pre>
 </div>
 </div>
@@ -162,7 +161,7 @@ Loss: tensor(54.7226, grad_fn=&lt;SumBackward0&gt;)
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>We can also see that the gradient is only active for 2x the number of positive labels: 6
+<pre>We can also see that the gradient is only active for 2x the number of positive labels: 4
 Meaning we correctly discard the gradients for all other than the offending negative label.
 </pre>
 </div>

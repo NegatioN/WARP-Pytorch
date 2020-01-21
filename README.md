@@ -13,8 +13,6 @@
 > An implementation of WARP loss which uses matrixes and stays on the GPU in PyTorch.
 
 
-An implementation of WARP loss which uses matrixes and stays on the GPU in PyTorch.
-
 This means instead of using a for-loop to find the first offending negative sample that ranks above our positive,
 we compute all of them at once. Only later do we find which sample is the first offender, and compute the loss with
 respect to this sample.
@@ -83,19 +81,19 @@ loss.backward()
 </div>
 <div class="output_area" markdown="1">
 
-    Positive Labels: tensor([[65],
-            [94],
-            [21]])
-    Negative Labels: tensor([[ 8, 45],
-            [37, 93],
-            [88, 84]])
-    Model positive scores: tensor([[-3.7806],
-            [-1.9974],
-            [-4.1741]], grad_fn=<SqueezeBackward1>)
-    Model negative scores: tensor([[-1.5696, -4.4905],
-            [-1.9300, -0.3826],
-            [ 2.4564, -2.1741]], grad_fn=<SqueezeBackward1>)
-    Loss: tensor(54.7226, grad_fn=<SumBackward0>)
+    Positive Labels: tensor([[55],
+            [49],
+            [50]])
+    Negative Labels: tensor([[35, 71],
+            [21, 83],
+            [98, 52]])
+    Model positive scores: tensor([[-8.3793],
+            [-3.7279],
+            [ 2.9248]], grad_fn=<SqueezeBackward1>)
+    Model negative scores: tensor([[ 0.5967, -2.6239],
+            [ 0.3970,  1.5881],
+            [ 1.5309, -3.4169]], grad_fn=<SqueezeBackward1>)
+    Loss: tensor(69.3908, grad_fn=<SumBackward0>)
 
 
 </div>
@@ -112,7 +110,7 @@ print('Meaning we correctly discard the gradients for all other than the offendi
 </div>
 <div class="output_area" markdown="1">
 
-    We can also see that the gradient is only active for 2x the number of positive labels: 6
+    We can also see that the gradient is only active for 2x the number of positive labels: 4
     Meaning we correctly discard the gradients for all other than the offending negative label.
 
 
